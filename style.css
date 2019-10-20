@@ -56,7 +56,18 @@ header > h1 {
   text-align: center;
   margin-top: 50px;
 }
-
+.green-glow{
+  border: 4px solid #4dcc7b;
+  box-shadow: 0 0 10px #31b434;
+}
+.red-glow{
+  border: 4px solid #e2584b;
+  box-shadow: 0 0 10px #b93226;
+}
+.grey-glow{
+  border: 4px solid #464647;
+  box-shadow: 0 0 10px #25292b;
+}
 .choice {
   display: inline-block;
   border: 4px solid white;
