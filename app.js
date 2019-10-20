@@ -29,31 +29,35 @@ function win(userChoice, computerChoice) {//function for winning, parameters are
   const smallCompWord = "comp".fontsize(3).sub()//declare variable smallCompWord to 'comp' change fontsize to 3 and subscript it.
   result_p.innerHTML = `${convertToWord(userChoice)}${smallUserWord} beat  ${convertToWord(computerChoice)}${smallCompWord} You win!....`//using `` to indicate the mixing and combinig of strings without +, using inbuilt function {converToWord} && changes the <p> in HTML 
   document.getElementById(userChoice).classList.add('green-glow');//adds the class of "green-glow" to whatever the user clicks as a choice.
-  setTimeout(function() { document.getElementById(userChoice).classList.remove('green-glow')}, 1000)
+  setTimeout(function() { document.getElementById(userChoice).classList.remove('green-glow')}, 300)//sets a timeout function to remove the green-glow class form userChoice div after 1000ms or 1sec
 }
 function lose(userChoice, computerChoice) {
-  computerScore++;
-  userScore_span.innerHTML = userScore
-  compScore_span.innerHTML = computerScore;
-  const smallUserWord = "user".fontsize(3).sub()
-  const smallCompWord = "comp".fontsize(3).sub()
-  result_p.innerHTML = `${convertToWord(userChoice)}${smallUserWord} lost to  ${convertToWord(computerChoice)}${smallCompWord} You Lost!`
+  computerScore++;//adds 1 to computerScore each time the function lose is run with the parameters of userChoice and computerChoice
+  userScore_span.innerHTML = userScore// assigns the userScore in HTML to the variable userScore in javaS
+  compScore_span.innerHTML = computerScore;// assigns the compScore in html to the variable computerScore in javaS
+  const smallUserWord = "user".fontsize(3).sub()//assigns the constant variable 'smallUserWord' to the string user' sets it's font to 3, and makes it a subscript
+  const smallCompWord = "comp".fontsize(3).sub()//assigns the constant variable 'smallCompWord' to to the string 'comp' with a fontize of 3, and makes it a subscript
+  result_p.innerHTML = `${convertToWord(userChoice)}${smallUserWord}lost to  ${convertToWord(computerChoice)}${smallCompWord} You Lost!`//converts the result p form HTML converts the userChoice, submits the smallUserWord adds the string 'lost to' converts the computerChoice to word, adds the smallCompWord variable, and concatanates the string 'you lost!' to the end of the string.
+  document.getElementById(userChoice).classList.add('red-glow');//when the function lose() is run add the class 'red-glow' to the userChoice 
+  setTimeout(function() {document.getElementById(userChoice).classList.remove('red-glow')}, 300);//sets a setTimeout function to the userChoice element, removes the previously mentioned red-glow class after 1000ms
 }
 function draw(userChoice, computerChoice) {
   
   const smallUserWord = "user".fontsize(3).sub()
   const smallCompWord = "comp".fontsize(3).sub()
   result_p.innerHTML = "It's a draw...."
+  document.getElementById(userChoice).classList.add('grey-glow');
+  setTimeout(function() {document.getElementById(userChoice).classList.remove('grey-glow')}, 300);
 }
 console.log(getComputerChoice());
 
-function game(userChoice) {//function for game parameters userChoice
+function game(userChoice) {//function for game parameter = userChoice
   const computerChoice = getComputerChoice();//declare variable computerChoice = getComputerChoice()
   switch (userChoice + computerChoice) {//switch statment, replaces 'if' in the case of 'rs', 'pr', 'sp' perform win() with the pre-set parameters "userChoice, computerChoice"
     case "rs":
     case "pr":
     case "sp":
-      win(userChoice, computerChoice);//perform win() with the pre-set parameters "userChoice, computerChoice"
+      win(userChoice, computerChoice);//perform win() function with the pre-set parameters "userChoice, computerChoice"
       break;//VITAL TO THE SWITCH STATMENT, TELLS TO STOP
     case "rp"://in the case of user'r' comp 'p' comp wins
     case "ps"://in the case of user'p' comp 's' comp wins
@@ -80,4 +84,4 @@ function main() {//main function allows for input based on click.
   });
 }
 
-main();
+main();//runs the main function allowing for input based on claicks. 
